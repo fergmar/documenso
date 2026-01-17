@@ -1,4 +1,5 @@
 FROM documenso/documenso:latest
 USER root
-RUN npx playwright install-deps chromium && npx playwright install chromium
+RUN apk add --no-cache chromium
+ENV PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium-browser
 USER nodejs
